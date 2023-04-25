@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+</head>
+<body>
+    <form action="{% url 'search' %}" method="POST">
+        {% csrf_token %}
+        <select name="units" id="units">
+            <option value="metric">Metric: °C, m/s</option>
+            <option value="imperial">Imperial: °F, mph</option>
+        </select>
+        <input type="text" name="zipcode" placeholder="Search with Zip of City" required>
+        <button type="submit">Search</button>
+    </form>
+    {% if message %}
+    <div class="message">
+        {{message}}
+    </div>
+    {% endif %}
+    
+    {% for day in daily %}
+    <div class="day">
+        day: {{day}}
+    </div>
+    {% endfor %}
+
+    {% for hour in hourly %}
+    <div class="hour">
+        hour: {{hour}}
+    </div>
+    {% endfor %}
+</body>
+</html>
