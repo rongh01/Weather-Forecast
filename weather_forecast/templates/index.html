@@ -12,6 +12,7 @@
 <div class="forecast-container">
     {% for hour in hours %}
     <div class="forecast">
+        <img src="http://openweathermap.org/img/w/{{ hour.icon }}.png" alt="{{ hour.description }}">
         <h3>{{hour.dt}}</h3>
         <p>{{hour.temp}}{{sign}}</p>
         <p>{{hour.description}}</p>
@@ -26,12 +27,12 @@
 <div class="table-header">7-Day Forecast</div>
 <div class="forecast-container">
     {% for day in days %}
-        <div class="forecast">
-            <h3>{{day.dt}}</h3>
-            <p>{{day.temp_min}}{{sign}} - {{day.temp_max}}{{sign}}</p>
-            <p>{{day.description}}</p>
-            <img src="http://openweathermap.org/img/w/{{ day.icon }}.png" alt="{{ day.description }}">
-        </div>
+    <div class="forecast">
+        <img src="http://openweathermap.org/img/w/{{ day.icon }}.png" alt="{{ day.description }}">
+        <h3>{{day.dt}}</h3>
+        <p>{{day.temp_min}}{{sign}} - {{day.temp_max}}{{sign}}</p>
+        <p>{{day.description}}</p>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

@@ -4,10 +4,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: calc(20px + 2vw);
+    font-size: calc(20px + 1vw);
     color: #282c34;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding-top: 30px;
 }
 
 .form, .message, .table-header {
@@ -15,19 +14,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: calc(15px + 1vw);
-    margin-bottom: 20px;
-}
-
-.forecast-container {
-    background-color: #f6f6f6;
-    padding: 4vh 4vw 4vh 4vw;
-    width: 100vw;
-    height: 20vh;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    display: inline-block;
+    font-size: calc(15px + 0.8vw);
+    padding-top: 30px;
 }
 
 .message {
@@ -35,26 +23,39 @@
 }
 
 .form text, .form button, .form select, .form input {
-    font-size: calc(10px + 1vw);
+    font-size: calc(10px + 0.8vw);
+}
+
+
+.forecast-container {
+    background-color: #f6f6f6;
+    padding: 4vh 4vw 4vh 4vw;
+    /* width: 100vw; */
+    height: 20vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
 .forecast {
     display: inline-block;
-    width: 20vw;
     /* Adjust width as needed */
-    height: 20vh;
+    width: 20vw;
+    height: 25vh;
     overflow-x: hidden;
     overflow-y: auto;
-    margin-right: 10px;
     background-color: #f1f1f1;
     /* Adjust background color as needed */
     text-align: center;
     /* line-height: 100px; */
-    font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-size: calc(10px + 0.6vw);
 }
 
 .forecast:hover {
     background-color: #ddd;
-  }
+}
+
+.forecast img {
+    padding: 20px;
+}
   

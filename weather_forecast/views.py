@@ -46,7 +46,8 @@ def search(request):
                     hours.append({
                         'dt': datetime.datetime.fromtimestamp(hour['dt']).strftime('%I %p'),
                         'temp': hour['temp'],
-                        'description': hour['weather'][0]['description']
+                        'description': hour['weather'][0]['description'],
+                        'icon': hour['weather'][0]['icon']
                     })
                 context['days'] = days
                 context['hours'] = hours
