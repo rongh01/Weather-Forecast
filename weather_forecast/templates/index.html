@@ -1,37 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast</title>
-</head>
-<body>
-    <form action="{% url 'search' %}" method="POST">
-        {% csrf_token %}
-        <select name="units" id="units">
-            <option value="metric">Metric: °C, m/s</option>
-            <option value="imperial">Imperial: °F, mph</option>
-        </select>
-        <input type="text" name="zipcode" placeholder="Search with Zip of City" required>
-        <button type="submit">Search</button>
-    </form>
-    {% if message %}
-    <div class="message">
-        {{message}}
-    </div>
-    {% endif %}
-    
-    {% for day in daily %}
-    <div class="day">
-        day: {{day}}
-    </div>
-    {% endfor %}
+{% extends "base.html" %}
 
-    {% for hour in hourly %}
-    <div class="hour">
-        hour: {{hour}}
+{% if name %}
+{% block location %}
+{{name}}, {{country}}
+{% endblock %}
+{% endif %}
+
+{% if hours %}
+{% block hour %}
+<div class="table-header">8-Hour Forecast</div>
+<div class="forecast-container">
+    {% for hour in hours %}
+    <div class="forecast">
+        <h3>{{hour.dt}}</h3>
+        <p>{{hour.temp}}{{sign}}</p>
+        <p>{{hour.description}}</p>
     </div>
     {% endfor %}
-</body>
-</html>
+</div>
+{% endblock%}
+{% endif %}
+
+{% if days %}
+{% block day %}
+<div class="table-header">7-Day Forecast</div>
+<div class="forecast-container">
+    {% for day in days %}
+        <div class="forecast">
+            <h3>{{day.dt}}</h3>
+            <p>{{day.temp_min}}{{sign}} - {{day.temp_max}}{{sign}}</p>
+            <p>{{day.description}}</p>
+            <img src="http://openweathermap.org/img/w/{{ day.icon }}.png" alt="{{ day.description }}">
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% endif %}
+

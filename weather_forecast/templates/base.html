@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+        <link href="{% static 'app.css' %}" rel="stylesheet">
+        <title>Weather Forecast</title>
+</head>
+<body>
+
+    <div class="web-header">
+        Weather Forecast Application
+    </div>
+
+    <div class="form">
+        <form action="{% url 'search' %}" method="POST">
+            {% csrf_token %}
+            <select name="units" id="units">
+                <option value="metric">Metric: °C, m/s</option>
+                <option value="imperial">Imperial: °F, mph</option>
+            </select>
+            <input type="text" name="zipcode" placeholder="Search with Zip of City" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="result">
+        {% if message %}
+        <div class="message">
+            {{message}}
+        </div>
+        {% endif %}
+        
+        <div class="location">
+            {% block location %}
+            {% endblock %}
+        </div>
+
+        {% block hour %}
+        {% endblock %}
+
+        {% block day %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

@@ -5,7 +5,6 @@ python3 -m pip install django
 ```
 
 ## Local Deployment
-Install:
 ```
 python3 manage.py migrate
 python3 manage.py runserver

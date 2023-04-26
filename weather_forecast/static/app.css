@@ -1,0 +1,60 @@
+.web-header, .location {
+    min-height: calc(5vh + 5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: calc(20px + 2vw);
+    color: #282c34;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.form, .message, .table-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: calc(15px + 1vw);
+    margin-bottom: 20px;
+}
+
+.forecast-container {
+    background-color: #f6f6f6;
+    padding: 4vh 4vw 4vh 4vw;
+    width: 100vw;
+    height: 20vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.message {
+    color: red;
+}
+
+.form text, .form button, .form select, .form input {
+    font-size: calc(10px + 1vw);
+}
+
+.forecast {
+    display: inline-block;
+    width: 20vw;
+    /* Adjust width as needed */
+    height: 20vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-right: 10px;
+    background-color: #f1f1f1;
+    /* Adjust background color as needed */
+    text-align: center;
+    /* line-height: 100px; */
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+.forecast:hover {
+    background-color: #ddd;
+  }
+  
